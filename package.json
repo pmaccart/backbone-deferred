@@ -20,7 +20,7 @@
       "url": "https://github.com/pmaccart/backbone-deferred/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "backbone-deferred",
+  "main": "backbone-deferred.js",
   "engines": {
     "node": "*"
   },
