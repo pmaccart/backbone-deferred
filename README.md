@@ -15,7 +15,8 @@ var MyCollection = Backbone.Collection.extend({
 var deferred = new MyCollection().fetch();
 deferred.done(function(collection) {
     // use the collection;
-});```
+});
+```
 
 ### In the browser
 Download the [production version][min] or the [development version][max].
