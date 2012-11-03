@@ -8,8 +8,14 @@ Install the module with: `npm install backbone-deferred`
 
 ```javascript
 var backbone_deferred = require('backbone-deferred');
-backbone_deferred.awesome(); // "awesome"
-```
+var MyCollection = Backbone.Collection.extend({
+    url:"/path/to/data"
+});
+
+var deferred = new MyCollection().fetch();
+deferred.done(function(collection) {
+    // use the collection;
+});```
 
 ### In the browser
 Download the [production version][min] or the [development version][max].
@@ -20,21 +26,17 @@ Download the [production version][min] or the [development version][max].
 In your web page:
 
 ```html
-<script src="dist/backbone-deferred.min.js"></script>
+<script src="backbone.js"></script>
+<script src="backbone-deferred.min.js"></script>
 <script>
-awesome(); // "awesome"
-</script>
-```
+    var MyCollection = Backbone.Collection.extend({
+        url:"/path/to/data"
+    });
 
-In your code, you can attach backbone-deferred's methods to any object.
-
-```html
-<script>
-this.exports = Bocoup.utils;
-</script>
-<script src="dist/backbone-deferred.min.js"></script>
-<script>
-Bocoup.utils.awesome(); // "awesome"
+    var deferred = new MyCollection().fetch();
+    deferred.done(function(collection) {
+        // use the collection;
+    });
 </script>
 ```
 
