@@ -43,7 +43,6 @@ describe('Test plugin functionality', function() {
 
             deferred.resolve();
             _.each([doneSpy, alwaysSpy], function(spy, i) {
-              console.log("resolve", i, spy.mostRecentCall.args[0], obj, spy.mostRecentCall.args[0] === obj);
               expect(spy.mostRecentCall.args[0]).toBe(obj);
             });
 
@@ -56,25 +55,15 @@ describe('Test plugin functionality', function() {
             var deferred = obj[action]();
             expect(Backbone.ajax).toHaveBeenCalled();
 
-            var doneSpy = jasmine.createSpy().andCallFake(function() {
-              console.log("done spy invoked");
-              console.log("done spy args", arguments);
-            }),
-              failSpy = jasmine.createSpy().andCallFake(function() {
-              console.log("fail spy invoked");
-              console.log("fail spy args", arguments);
-            }),
-              alwaysSpy = jasmine.createSpy().andCallFake(function() {
-              console.log("always spy invoked");
-              console.log("always spy args", arguments);
-            });
+            var doneSpy = jasmine.createSpy(),
+              failSpy = jasmine.createSpy(),
+              alwaysSpy = jasmine.createSpy();
             deferred.done(doneSpy);
             deferred.fail(failSpy);
             deferred.always(alwaysSpy);
 
             deferred.reject();
             _.each([failSpy, alwaysSpy], function(spy, i) {
-              console.log("reject", i, spy.mostRecentCall.args[0], obj, spy.mostRecentCall.args[0] === obj);
               expect(spy.mostRecentCall.args[0]).toBe(obj);
             });
 

@@ -22,12 +22,14 @@ files = [
 // //    'test/unit/main.js',
 // //    'test/unit/**/*.js',
 //     'test/unit/controllersSpec.js'
+    'test/vendor/require.js',
     'test/vendor/jquery.js',
     'test/vendor/underscore.js',
     'test/vendor/backbone.js',
-    'backbone-deferred.js',
+    // 'backbone-deferred.js',
+    'test/main.js',
 
-    'test/jasmine/**/*.test.js'
+    // 'test/jasmine/**/*.test.js'
 
 
 ];
